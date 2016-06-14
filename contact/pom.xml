@@ -17,6 +17,8 @@
 		<slf4j.log4j.version>1.7.21</slf4j.log4j.version>
 		<hibernate.version>5.1.0.Final</hibernate.version>
 		<jstl.version>1.2</jstl.version>
+		<javaee.web.api.version>6.0</javaee.web.api.version>
+		<usertype.version>5.0.0.GA</usertype.version>
 	</properties>
 
 	<dependencies>
@@ -63,11 +65,11 @@
 			<artifactId>joda-time-jsptags</artifactId>
 			<version>${joda.time.jsptags.version}</version>
 		</dependency>
-		      <dependency>
-          <groupId>joda-time</groupId>
-          <artifactId>joda-time</artifactId>
-          <version>${joda.time.version}</version>
-      </dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda.time.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -77,6 +79,19 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
+			<version>${usertype.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>${javaee.web.api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -105,6 +120,10 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
+				<configuration>
+					<path>/</path>
+					<port>8080</port>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

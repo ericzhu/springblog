@@ -1,6 +1,5 @@
 package com.ecomlogix.cms.domain;
 
-import java.beans.Transient;
 import java.io.Serializable;
 
 import javax.persistence.Basic;
@@ -12,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import org.hibernate.annotations.Type;
@@ -121,4 +121,6 @@ public class Contact implements Serializable {
    public String toString() {
       return "Contact - Id: " + id + ", First name: " + firstName + ", Last name: " + lastName + ", Birthday: " + birthDate + ", Description: " + description;
    }
+   
+   
 }
