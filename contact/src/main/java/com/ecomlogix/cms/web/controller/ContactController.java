@@ -6,6 +6,7 @@ import com.ecomlogix.cms.util.UrlUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,8 @@ public class ContactController {
     private final Logger logger = LoggerFactory.getLogger(ContactController.class);
 
 	private ContactService contactService;
+
+    private MessageSource messageSource;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model uiModel) {
@@ -49,11 +52,11 @@ public class ContactController {
         return "contacts/updateForm";
     }
 
-    @RequestMapping(value = "/{id}")
+    @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
     public String update(Contact contact, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest,
                          RedirectAttributes redirectAttributes, Locale locale) {
+        logger.info("Updating contact");
         if(bindingResult.hasErrors()) {
-
         }
         return "redirect:/contacts/" + UrlUtil.encodeUrlPath(contact.getId().toString(), httpServletRequest);
     }
@@ -63,4 +66,8 @@ public class ContactController {
 		this.contactService = contactService;
 	}
 
+    @Autowired
+    public void setMessageSource(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
 }
