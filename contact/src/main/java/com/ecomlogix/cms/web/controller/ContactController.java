@@ -55,7 +55,11 @@ public class ContactController {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
     public String update(Contact contact, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest,
                          RedirectAttributes redirectAttributes, Locale locale) {
+<<<<<<< HEAD
         logger.info("Updating contact");
+=======
+    	logger.info("Updating Contact");
+>>>>>>> bfe5b7dd00a1a66cc96ea4a7a49f8c84bc083b64
         if(bindingResult.hasErrors()) {
         }
         return "redirect:/contacts/" + UrlUtil.encodeUrlPath(contact.getId().toString(), httpServletRequest);
