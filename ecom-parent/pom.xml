@@ -11,6 +11,7 @@
 		<commons-validator.version>1.5.1</commons-validator.version>
 		<commons-lang3.version>3.4</commons-lang3.version>
 		<hibernate-entitymanager.version>5.2.1.Final</hibernate-entitymanager.version>
+		<spring.version>4.3.0.RELEASE</spring.version>
 	</properties>
 
 	<dependencyManagement>
@@ -38,6 +39,14 @@
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>${hibernate-entitymanager.version}</version>
 			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
