@@ -49,9 +49,10 @@ public class ContactController {
         return "contacts/updateForm";
     }
 
-    @RequestMapping(value = "/{id}")
+    @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
     public String update(Contact contact, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest,
                          RedirectAttributes redirectAttributes, Locale locale) {
+    	logger.info("Updating Contact");
         if(bindingResult.hasErrors()) {
 
         }
