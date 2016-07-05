@@ -21,4 +21,8 @@ public class Account extends BaseDomainObject<Long> {
    public Address getAddress() {
       return address;
    }
+   
+   public String getEmailAddress() {
+      return emailAddress;
+   }
 }
