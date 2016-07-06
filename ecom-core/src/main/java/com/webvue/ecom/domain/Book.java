@@ -2,7 +2,9 @@ package com.webvue.ecom.domain;
 
 import java.math.BigDecimal;
 
-public class Book extends BaseDomainObject<Long> {
+import com.webvue.ecom.domain.support.BaseEntity;
+
+public class Book extends BaseEntity<Long> {
 
    private static final long serialVersionUID = 1L;
 

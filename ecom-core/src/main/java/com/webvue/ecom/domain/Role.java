@@ -3,7 +3,9 @@ package com.webvue.ecom.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Role extends BaseDomainObject<Long> {
+import com.webvue.ecom.domain.support.BaseEntity;
+
+public class Role extends BaseEntity<Long> {
 
    private String           role;
    private List<Permission> permissions = new ArrayList<>();

@@ -1,6 +1,8 @@
 package com.webvue.ecom.domain;
 
-public class Permission extends BaseDomainObject<Long> {
+import com.webvue.ecom.domain.support.BaseEntity;
+
+public class Permission extends BaseEntity<Long> {
 
    private static final long serialVersionUID = 1L;
 

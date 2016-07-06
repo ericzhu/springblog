@@ -1,8 +1,8 @@
-package com.webvue.ecom.domain;
+package com.webvue.ecom.domain.support;
 
 import java.io.Serializable;
 
-public abstract class BaseDomainObject<ID_T> implements Serializable {
+public abstract class BaseEntity<ID_T> implements Serializable {
    
    private static final long serialVersionUID = 1L;
    

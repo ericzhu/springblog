@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Order extends BaseDomainObject<Long> {
+import com.webvue.ecom.domain.support.BaseEntity;
+
+public class Order extends BaseEntity<Long> {
 
    private static final long serialVersionUID      = 1L;
 

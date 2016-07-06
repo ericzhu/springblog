@@ -1,5 +1,6 @@
 package com.webvue.ecom.service.spring;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ public class AccountServiceImpl implements AccountService {
 
    @Autowired
    private AccountRepository accountRepository;
-   
+
    @Override
    @Transactional(readOnly = false)
    public Account save(Account account) {
@@ -25,16 +26,21 @@ public class AccountServiceImpl implements AccountService {
    @Override
    public Account login(String username, String password) throws AuthenticaticationException {
       Account account = accountRepository.findByUsername(username);
-      if(account == null) {
-         throw new AuthenticaticationException(message, code);
+      if (account == null) {
+         throw new AuthenticaticationException("Wrong username/password combination", "invalid.username");
       }
-      return null;
+      else {
+         String pwd = DigestUtils.sha256Hex(password + "{" + username + "}");
+         if (!pwd.equalsIgnoreCase(account.getPassword())) {
+            throw new AuthenticaticationException("Wrong username/password combination", "invalid.password");
+         }
+      }
+      return account;
    }
 
    @Override
    public Account getAccount(String username) {
-      // TODO Auto-generated method stub
-      return null;
+      return this.accountRepository.findByUsername(username);
    }
 
 }
