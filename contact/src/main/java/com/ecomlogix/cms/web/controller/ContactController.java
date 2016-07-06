@@ -23,55 +23,55 @@ import java.util.Locale;
 @RequestMapping(value = "/contacts")
 public class ContactController {
 
-    private final Logger logger = LoggerFactory.getLogger(ContactController.class);
+   private final Logger   logger = LoggerFactory.getLogger(ContactController.class);
 
-	private ContactService contactService;
+   private ContactService contactService;
 
-    private MessageSource messageSource;
+   private MessageSource  messageSource;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String list(Model uiModel) {
-        logger.info("Listing contacts");
-        List<Contact> contacts = contactService.findAll();
-		uiModel.addAttribute("contacts", contacts);
-        logger.info("No. of contacts: " + contacts.size());
-		return "contacts/list";
-	}
+   @RequestMapping(method = RequestMethod.GET)
+   public String list(Model uiModel) {
+      logger.info("Listing contacts");
+      List<Contact> contacts = contactService.findAll();
+      uiModel.addAttribute("contacts", contacts);
+      logger.info("No. of contacts: " + contacts.size());
+      return "contacts/list";
+   }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String show(@PathVariable("id") Long id, Model uiModel) {
-        Contact contact = contactService.findById(id);
-        uiModel.addAttribute("contact",contact);
-        return "contacts/show";
-    }
+   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+   public String show(@PathVariable("id") Long id, Model uiModel) {
+      Contact contact = contactService.findById(id);
+      uiModel.addAttribute("contact", contact);
+      return "contacts/show";
+   }
 
-    @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String updateForm(@PathVariable(value = "id") Long id, Model uiModel) {
-        Contact contact = contactService.findById(id);
-        uiModel.addAttribute("contact", contact);
-        return "contacts/updateForm";
-    }
+   @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
+   public String updateForm(@PathVariable(value = "id") Long id, Model uiModel) {
+      Contact contact = contactService.findById(id);
+      uiModel.addAttribute("contact", contact);
+      return "contacts/updateForm";
+   }
 
-    @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
-    public String update(Contact contact, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest,
-                         RedirectAttributes redirectAttributes, Locale locale) {
-<<<<<<< HEAD
-        logger.info("Updating contact");
-=======
-    	logger.info("Updating Contact");
->>>>>>> bfe5b7dd00a1a66cc96ea4a7a49f8c84bc083b64
-        if(bindingResult.hasErrors()) {
-        }
-        return "redirect:/contacts/" + UrlUtil.encodeUrlPath(contact.getId().toString(), httpServletRequest);
-    }
+   @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
+   public String update(Contact contact,
+      BindingResult bindingResult,
+      Model uiModel,
+      HttpServletRequest httpServletRequest,
+      RedirectAttributes redirectAttributes,
+      Locale locale) {
 
-	@Autowired
-	public void setContactService(ContactService contactService) {
-		this.contactService = contactService;
-	}
+      logger.info("Updating Contact");
+      if (bindingResult.hasErrors()) {}
+      return "redirect:/contacts/" + UrlUtil.encodeUrlPath(contact.getId().toString(), httpServletRequest);
+   }
 
-    @Autowired
-    public void setMessageSource(MessageSource messageSource) {
-        this.messageSource = messageSource;
-    }
+   @Autowired
+   public void setContactService(ContactService contactService) {
+      this.contactService = contactService;
+   }
+
+   @Autowired
+   public void setMessageSource(MessageSource messageSource) {
+      this.messageSource = messageSource;
+   }
 }

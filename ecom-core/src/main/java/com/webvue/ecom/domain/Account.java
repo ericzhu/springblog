@@ -71,8 +71,4 @@ public class Account extends BaseEntity<Long> {
    public void setDateOfBirth(Date dateOfBirth) {
       this.dateOfBirth = dateOfBirth;
    }
-   
-   public String getEmailAddress() {
-      return emailAddress;
-   }
 }

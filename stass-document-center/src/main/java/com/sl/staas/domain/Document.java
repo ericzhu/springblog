@@ -1,7 +1,6 @@
 package com.sl.staas.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -33,7 +33,7 @@ public class Document implements Serializable {
    @Column(name = "CREATED_AT")
    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
    @DateTimeFormat(iso = ISO.DATE)
-   private Date              createdAt;
+   private DateTime          createdAt;
 
    @Column(name = "DOC_NAME")
    private String            docName;
@@ -56,11 +56,11 @@ public class Document implements Serializable {
       this.version = version;
    }
 
-   public Date getCreatedAt() {
+   public DateTime getCreatedAt() {
       return createdAt;
    }
 
-   public void setCreatedAt(Date createdAt) {
+   public void setCreatedAt(DateTime createdAt) {
       this.createdAt = createdAt;
    }
 

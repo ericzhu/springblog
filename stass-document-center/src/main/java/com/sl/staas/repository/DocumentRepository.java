@@ -1,5 +1,7 @@
 package com.sl.staas.repository;
 
-public interface DocumentRepository {
+import com.sl.staas.domain.Document;
 
+public interface DocumentRepository {
+   public Document save(Document document);
 }
