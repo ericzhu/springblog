@@ -18,6 +18,14 @@
 
     <spring:message code="application_name" var="app_name" htmlEscape="false"/>
     <title><spring:message code="welcome_h3" arguments="${app_name}"/></title>
+    
+    <!-- jQuery and jQuery UI -->
+	<spring:url value="/resources/scripts/jquery-1.11.1.js" var="jquery_url" />
+	<spring:url value="/resources/scripts/jquery-ui-1.10.4.custom.min.js" var="jquery_ui_url" />
+	<spring:url value="/resources/styles/custom-theme/jquery-ui-1.10.4.custom.css" var="jquery_ui_theme_css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${jquery_ui_theme_css}" />
+	<script src="${jquery_url}" type="text/javascript"><jsp:text/></script>
+	<script src="${jquery_ui_url}" type="text/javascript"><jsp:text/></script>
 </head>
 <body>
     <div id="headerWrapper">

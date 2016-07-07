@@ -24,13 +24,14 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 
 @Configuration
 @EnableTransactionManagement(mode = AdviceMode.PROXY, proxyTargetClass = false)
-@ComponentScan(basePackages = "com.sl.staas", excludeFilters = @ComponentScan.Filter({ Controller.class, ControllerAdvice.class }))
+@ComponentScan(basePackages = "com.sl.staas", excludeFilters = @ComponentScan.Filter({ Controller.class, ControllerAdvice.class }) )
 public class RootContextConfiguration implements TransactionManagementConfigurer {
 
    private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
    private static final String DB_URL            = "jdbc:mysql://localhost:3306/doc_center";
    private static final String DB_USER           = "root";
-   private static final String DB_PASSWORD       = "silanis1";
+   // private static final String DB_PASSWORD = "silanis1";
+   private static final String DB_PASSWORD       = "root";
    private static final int    CONN_POOL_SIZE    = 5;
 
    @Bean(destroyMethod = "close")

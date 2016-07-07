@@ -10,9 +10,19 @@
 <spring:message code="label_contact_birth_date" var="labelContactBirthDate"/>
 <spring:message code="label_contact_description" var="labelContactDescription"/>
 <spring:message code="label_contact_photo" var="labelContactPhoto"/>
+
 <spring:eval expression="contact.id == null ? labelContactNew:labelContactUpdate" var="formTitle"/>
+<script type="text/javascript">
+	$(function(){
+		$('#birthDate').datepicker({
+			dateFormat: 'yy-mm-dd',
+			changeYear: true
+			});
+		});
+</script>
 <div>
     <h1>${formTitle}</h1>
+    
     <div id="contactUpdate">
         <form:form modelAttribute="contact" id="contactUpdateForm" method="post">
         <c:if test="${not empty message}">
