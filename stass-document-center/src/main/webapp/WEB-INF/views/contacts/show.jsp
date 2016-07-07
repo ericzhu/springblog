@@ -11,11 +11,15 @@
     <spring:message code="label_contact_update" var="labelContactUpdate"/>
     <spring:message code="date_format_pattern" var="dateFormatPattern"/>
     <spring:url value="/contacts" var="editContactUrl"/>
+    
     <h1>${labelContactInfo}</h1>
     <div id="contactInfo">
+        <!-- Display the error message, if it exists -->
         <c:if test="${not empty message}">
             <div id="message" class="${message.type}">${message.message}</div>
         </c:if>
+        
+        <!-- Display the model (contact) information in html table -->
         <table>
             <tr>
                 <td>${labelContactFirstName}</td>
